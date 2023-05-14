@@ -1,0 +1,41 @@
+{
+    "name": "TokenSpecter",
+    "version": "1.0",
+    "manifest_version": 3,
+    "description": "A simple that flags Spam Address on blockchain",
+    "icons": {
+      "16": "images/icon16.png",
+      "48": "images/icon48.png",
+      "128": "images/icon128.png"
+    },
+
+    "permissions": [
+        "activeTab",
+        "scripting",
+        "tabs"
+      ],
+    "host_permissions": [
+      "https://api.etherscan.io/*",
+      "https://api.polygonscan.com/*",
+
+      "https://etherscan.io/address/*",
+      "https://etherscan.io/token/*",
+
+      "https://polygonscan.com/address/*",
+      "https://polygonscan.com/token/*"
+    ],
+    "background": {
+      "service_worker": "background.js"
+    },
+    "content_scripts": [
+        {
+          "matches": ["https://etherscan.io/address/*",
+          "https://etherscan.io/token/*",
+    
+          "https://polygonscan.com/address/*",
+          "https://polygonscan.com/token/*"],
+          "js": ["content.js"]
+        }
+      ]
+  }
+  
